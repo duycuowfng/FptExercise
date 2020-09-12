@@ -1,45 +1,39 @@
-﻿using NUnit.Framework;
+﻿using Newtonsoft.Json.Linq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
+using OpenQA.Selenium.Firefox;
 using System.Configuration;
-using System.Threading;
-using Newtonsoft.Json.Linq;
+using WebDriverManager.DriverConfigs.Impl;
+using System;
 using System.IO;
 
 namespace CuongExcercise1.TestCases
 {
     class TestBase
     {
-        String test_url = ConfigurationManager.AppSettings["URL"];
         protected IWebDriver driver;
-
-        [SetUp]
-        protected void SetUp()
+        protected void InitBrowser(string browserName)
         {
-            driver = new ChromeDriver();
-            driver.Url = test_url;
+            switch (browserName.ToUpper())
+            {
+                case "CHROME":
+                    new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
+                    driver = new ChromeDriver();
+                    break;
+                case "FIREFOX":
+                    new WebDriverManager.DriverManager().SetUpDriver(new FirefoxConfig());
+                    driver = new FirefoxDriver();
+                    break;
+            }
             driver.Manage().Window.Maximize();
+            driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["URL"]);
         }
 
-        [TearDown]
-        protected void TearDown()
+        protected void QuitBrowser()
         {
             driver.Quit();
         }
-        protected void SetText(IWebElement e, string text)
-        {
-            e.SendKeys(text);
-        }
 
-        protected void ClickToElement(IWebElement e)
-        {
-            e.Click();
-        }
-        protected void GoToURL(String url)
-        {
-            driver.Navigate().GoToUrl(url);
-        }
         protected Func<IWebDriver, IWebElement> ValidateElementlIsClickable(By locator)
         {
             return driver =>
@@ -60,16 +54,6 @@ namespace CuongExcercise1.TestCases
             {
                 return false;
             }
-        }
-        protected void WaitElementVisible(IWebElement e)
-        {
-            int retry = 0;
-            do
-            {
-                Thread.Sleep(1000);
-                Console.WriteLine($"Element is displayed : {e.Displayed} : {retry}");
-                retry++;
-            } while (!e.Displayed && retry < 3);
         }
 
         public string GetValueFromJsonFile(string condition)
