@@ -1,0 +1,16 @@
+﻿{
+  "Books": [
+    {
+      "name": "C# 7.0 in a Nutshell",
+      "value": "C# 7.0 in a Nutshell: The Definitive Reference"
+    },
+    {
+      "name": "Test Automation using Selenium Webdriver 3.0 with C#",
+      "value": "Test Automation using Selenium Webdriver 3.0 with C#"
+    },
+    {
+      "name": "Learn Selenium:",
+      "value": "Learn Selenium: Build data-driven test frameworks for mobile and web applications with Selenium Web Driver 3"
+    }
+  ]
+}
