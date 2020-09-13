@@ -1,6 +1,5 @@
-﻿using NUnit.Framework;
-using CuongExcercise1.PageObjects;
-using System.Threading;
+﻿using CuongExcercise1.PageObjects;
+using NUnit.Framework;
 using System.Configuration;
 
 namespace CuongExcercise1.TestCases
@@ -10,15 +9,15 @@ namespace CuongExcercise1.TestCases
         [Test]
         public void VerifyBookTitleInDetailPageDisplayCorrectly()
         {
-            InitBrowser("Chrome");
+            InitBrowser(ConfigurationManager.AppSettings["BROWSER"]);
             NavigateToURL(ConfigurationManager.AppSettings["URL"]);
 
             Page.Home.SearchBook("Selenium");
-            Thread.Sleep(5000);
+            ValidateElementlIsClickable(Page.Home.FirstResultBook);
             Page.Home.ClickFirstResultBook();
             string JsonTitle = GetValueFromJsonFile("..Books[2].value");
-            string UI_Title = Page.Detail.ProductTitle.Text;
-            Assert.AreEqual(JsonTitle, UI_Title);
+            string DetailTitle = Page.Detail.ProductTitle.Text;
+            Assert.AreEqual(JsonTitle, DetailTitle);
 
             QuitBrowser();
         }

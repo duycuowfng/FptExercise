@@ -20,7 +20,7 @@ namespace CuongExcercise1.PageObjects
 
         [FindsBy(How = How.XPath, Using = "//*[@data-index='0' and not(following-sibling::div[@class='threepsl-creative'])]//a[@class='a-link-normal a-text-normal']/*")]
         [CacheLookup]
-        private IWebElement FirstResultBook { get; set; }
+        public IWebElement FirstResultBook { get; set; }
 
         public void SearchBook(string keyword)
         {
