@@ -2,7 +2,6 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
-using System.Configuration;
 using WebDriverManager.DriverConfigs.Impl;
 using System;
 using System.IO;
@@ -11,27 +10,39 @@ namespace CuongExcercise1.TestCases
 {
     class TestBase
     {
-        protected IWebDriver driver;
+        private static IWebDriver Driver { get; set; }
+
+        public static IWebDriver GetDriver()
+        {
+            if (Driver == null)
+                throw new NullReferenceException("The WebDriver browser instance was not initialized. You should first call the method InitBrowser.");
+            return Driver;
+        }
+
         protected void InitBrowser(string browserName)
         {
             switch (browserName.ToUpper())
             {
                 case "CHROME":
                     new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
-                    driver = new ChromeDriver();
+                    Driver = new ChromeDriver();
                     break;
                 case "FIREFOX":
                     new WebDriverManager.DriverManager().SetUpDriver(new FirefoxConfig());
-                    driver = new FirefoxDriver();
+                    Driver = new FirefoxDriver();
                     break;
             }
-            driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["URL"]);
+            Driver.Manage().Window.Maximize();
         }
 
         protected void QuitBrowser()
         {
-            driver.Quit();
+            Driver.Quit();
+        }
+
+        protected void NavigateToURL(string Url)
+        {
+            Driver.Navigate().GoToUrl(Url);
         }
 
         protected Func<IWebDriver, IWebElement> ValidateElementlIsClickable(By locator)
@@ -47,7 +58,7 @@ namespace CuongExcercise1.TestCases
         {
             try
             {
-                driver.FindElement(by);
+                Driver.FindElement(by);
                 return true;
             }
             catch (NoSuchElementException)

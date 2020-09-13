@@ -4,16 +4,8 @@ using SeleniumExtras.PageObjects;
 
 namespace CuongExcercise1.PageObjects
 {
-    class HomePage
+    public class HomePage
     {
-        private IWebDriver driver;
-
-        public HomePage(IWebDriver driver)
-        {
-            this.driver = driver;
-            PageFactory.InitElements(driver, this);
-        }
-
         [FindsBy(How = How.CssSelector, Using = "[id=searchDropdownBox]")]
         [CacheLookup]
         private IWebElement SearchDropdownBox { get; set; }

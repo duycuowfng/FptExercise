@@ -51,6 +51,7 @@ C:\Users\namnk\Ftown3\CuongExcercise1\CuongExcercise1\obj\Debug\CuongExcercise1.
 C:\Users\namnk\Ftown3\CuongExcercise1\CuongExcercise1\obj\Debug\CuongExcercise1.csproj.CopyComplete
 C:\Users\namnk\Ftown3\CuongExcercise1\CuongExcercise1\obj\Debug\CuongExcercise1.dll
 C:\Users\namnk\Ftown3\CuongExcercise1\CuongExcercise1\obj\Debug\CuongExcercise1.pdb
+C:\Users\namnk\source\repos\FptExercise\CuongExcercise1\CuongExcercise1\bin\Debug\ICSharpCode.SharpZipLib.pdb
 C:\Users\namnk\source\repos\FptExercise\CuongExcercise1\CuongExcercise1\bin\Debug\Newtonsoft.Json.xml
 C:\Users\namnk\source\repos\FptExercise\CuongExcercise1\CuongExcercise1\bin\Debug\App.config
 C:\Users\namnk\source\repos\FptExercise\CuongExcercise1\CuongExcercise1\bin\Debug\Configurations\Environment.config
@@ -78,7 +79,6 @@ C:\Users\namnk\source\repos\FptExercise\CuongExcercise1\CuongExcercise1\bin\Debu
 C:\Users\namnk\source\repos\FptExercise\CuongExcercise1\CuongExcercise1\bin\Debug\WebDriver.Support.dll
 C:\Users\namnk\source\repos\FptExercise\CuongExcercise1\CuongExcercise1\bin\Debug\WebDriverManager.dll
 C:\Users\namnk\source\repos\FptExercise\CuongExcercise1\CuongExcercise1\bin\Debug\AngleSharp.xml
-C:\Users\namnk\source\repos\FptExercise\CuongExcercise1\CuongExcercise1\bin\Debug\ICSharpCode.SharpZipLib.pdb
 C:\Users\namnk\source\repos\FptExercise\CuongExcercise1\CuongExcercise1\bin\Debug\ICSharpCode.SharpZipLib.xml
 C:\Users\namnk\source\repos\FptExercise\CuongExcercise1\CuongExcercise1\bin\Debug\Json.pdb
 C:\Users\namnk\source\repos\FptExercise\CuongExcercise1\CuongExcercise1\bin\Debug\nunit.framework.pdb

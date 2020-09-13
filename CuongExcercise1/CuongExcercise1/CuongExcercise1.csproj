@@ -98,9 +98,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PageObjects\Page.cs" />
     <Compile Include="TestCases\HomePageTest.cs" />
     <Compile Include="TestCases\TestBase.cs" />
-    <Compile Include="WrapperFactory\BrowserFactory.cs" />
     <Content Include="App.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

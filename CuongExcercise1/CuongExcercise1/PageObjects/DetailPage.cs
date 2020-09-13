@@ -3,20 +3,10 @@ using SeleniumExtras.PageObjects;
 
 namespace CuongExcercise1.PageObjects
 {
-    class DetailPage
+    public class DetailPage
     {
-        private IWebDriver driver;
-
-        public DetailPage(IWebDriver driver)
-        {
-            this.driver = driver;
-            PageFactory.InitElements(driver, this);
-        }
-
-        public string GetProductTitleInDetailPage()
-        {
-            string title = driver.FindElement(By.CssSelector("[id=productTitle]")).Text;
-            return title;
-        }
+        [FindsBy(How = How.CssSelector, Using = "[id=productTitle]")]
+        [CacheLookup]
+        public IWebElement ProductTitle { get; set; }
     }
 }
